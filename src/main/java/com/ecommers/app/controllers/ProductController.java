@@ -41,7 +41,7 @@ public class ProductController {
         return responceDtos;
     }
     @DeleteMapping("/{id}")
-    public void deleteProduct(){
-
+    public String deleteProduct(){
+        return "";
     }
 }
