@@ -22,4 +22,14 @@ public class ProductServiceDBImpl implements ProductService{
     public Product getProduct(Long id) {
         return null;
     }
+
+    @Override
+    public void delete(Long id) {
+
+    }
+
+    @Override
+    public void update(Long id) {
+
+    }
 }

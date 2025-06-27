@@ -5,16 +5,13 @@ import lombok.Data;
 
 @Data
 public class CreateProductResponseDto {
-    private GetProductDto getProductDto;
+    private ResponseProductDto getProductDto;
     public static CreateProductResponseDto createProductResponseDto(Product product){
         CreateProductResponseDto createProductResponseDto=new CreateProductResponseDto();
-        createProductResponseDto.getProductDto.setId(product.getId());
-        createProductResponseDto.getProductDto.setTitle(product.getName());
-        createProductResponseDto.getProductDto.setCategory(product.getCategory());
-        createProductResponseDto.getProductDto.setDescription(product.getDescription());
-        createProductResponseDto.getProductDto.setPrice(product.getPrice());
-        createProductResponseDto.getProductDto.setImage(product.getImageUrl());
-
+        createProductResponseDto.setGetProductDto(ResponseProductDto.getProductDto(product));
         return createProductResponseDto;
+    }
+    public Product toProduct(){
+        return getProductDto.toProduct();
     }
 }

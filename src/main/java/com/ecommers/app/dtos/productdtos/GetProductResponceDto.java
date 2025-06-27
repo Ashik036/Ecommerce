@@ -5,11 +5,13 @@ import lombok.Data;
 
 @Data
 public class GetProductResponceDto {
-    private GetProductDto getProductDto;
+    private ResponseProductDto getProductDto;
     public static GetProductResponceDto getProductResponceDto(Product product){
         GetProductResponceDto productResponceDto=new GetProductResponceDto();
-        GetProductDto productDto= GetProductDto.getProductDto(product);
-        productResponceDto.getProductDto=productDto;
+        productResponceDto.setGetProductDto(ResponseProductDto.getProductDto(product));
         return productResponceDto;
+    }
+    public Product toProduct(){
+        return getProductDto.toProduct();
     }
 }

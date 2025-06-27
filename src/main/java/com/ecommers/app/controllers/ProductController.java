@@ -35,13 +35,14 @@ public class ProductController {
         GetAllProductResponceDto responceDtos=new GetAllProductResponceDto();
         responceDtos.setProducts(new ArrayList<>());
         for(Product product:products){
-            GetProductDto getProductDto=GetProductDto.getProductDto(product);
+            ResponseProductDto getProductDto= ResponseProductDto.getProductDto(product);
             responceDtos.getProducts().add(getProductDto);
         }
         return responceDtos;
     }
     @DeleteMapping("/{id}")
-    public String deleteProduct(){
-        return "";
+    public boolean deleteProduct(@PathVariable("id") Long productId){
+        productService.delete(productId);
+        return true;
     }
 }

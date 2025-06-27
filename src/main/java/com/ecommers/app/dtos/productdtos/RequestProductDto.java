@@ -4,7 +4,7 @@ import com.ecommers.app.model.Product;
 import lombok.Data;
 
 @Data
-public class CreateProductRequestDto {
+public class RequestProductDto {
     private String title;
     private String description;
     private String category;
@@ -19,10 +19,13 @@ public class CreateProductRequestDto {
         product.setName(title);
         return product;
     }
-    private RequestProductDto productDto;
-    public CreateProductRequestDto toCreateProductRequestDto(Product product){
-        CreateProductRequestDto requestDto=new CreateProductRequestDto();
-         requestDto.setProductDto(RequestProductDto.toRequestProductDto(product));
-         return requestDto;
+    public static RequestProductDto toRequestProductDto(Product product){
+        RequestProductDto requestProductDto=new RequestProductDto();
+        requestProductDto.setTitle(product.getName());
+        requestProductDto.setCategory(product.getCategory());
+        requestProductDto.setDescription(product.getDescription());
+        requestProductDto.setPrice(product.getPrice());
+        requestProductDto.setImage(product.getImageUrl());
+        return requestProductDto;
     }
 }

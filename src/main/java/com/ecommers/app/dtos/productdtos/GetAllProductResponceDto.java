@@ -6,5 +6,5 @@ import java.util.List;
 
 @Data
 public class GetAllProductResponceDto {
-    private List<GetProductDto> products;
+    private List<ResponseProductDto> products;
 }
